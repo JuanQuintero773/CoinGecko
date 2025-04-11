@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinGecko App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash-screen">
+    <img src="icon.png" alt="App Icon">
+    <h1>Bienvenido a CoinGecko App</h1>
+  </div>
+
+  <header>
+    <h1>CoinGecko App</h1>
+    <input type="text" id="search-bar" placeholder="Buscar...">
+  </header>
+
+  <main>
+    <nav id="tabs">
+      <button class="tab" data-tab="tab1">Inicio</button>
+      <button class="tab" data-tab="tab2">Favoritos</button>
+      <button class="tab" data-tab="tab3">Mercado</button>
+      <button class="tab" data-tab="tab4">Noticias</button>
+      <button class="tab" data-tab="tab5">Configuración</button>
+      <button class="tab" data-tab="tab6">Perfil</button>
+    </nav>
+    <section id="tab-content">
+      <!-- El contenido dinámico de cada pestaña se mostrará aquí -->
+    </section>
+  </main>
+
+  <footer id="bottom-menu">
+    <button>Inicio</button>
+    <button>Favoritos</button>
+    <button>Configuración</button>
+    <button>Perfil</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
