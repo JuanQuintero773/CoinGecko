@@ -5,23 +5,42 @@ body {
     box-sizing: border-box;
   }
   
-  #splash-screen {
+  /* Estilos para el formulario de registro */
+  form#registration-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
   }
   
-  header {
-    display: flex;
-    justify-content: space-between;
+  form#registration-form input {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form#registration-form button {
+    margin-top: 10px;
     padding: 10px;
     background-color: #007bff;
     color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
   }
   
+  form#registration-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Mejorar el diseño de las pestañas */
   #tabs {
     display: flex;
     justify-content: space-around;
@@ -42,16 +61,60 @@ body {
     border-bottom: 2px solid white;
   }
   
-  #tab-content {
-    padding: 20px;
-    min-height: 300px;
+  /* Estilos para los botones del perfil */
+  button#logout-btn, button#switch-user-btn {
+    margin: 10px;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
   }
   
-  #bottom-menu {
+  button#logout-btn:hover, button#switch-user-btn:hover {
+    background-color: #c82333;
+  }
+
+  #stats-content {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  #stats-data {
     display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer button.active {
     background-color: #007bff;
+    color: white;
+  }
+  .coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .coin img {
+    border-radius: 50%;
+  }
+  #load-more {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #load-more:hover {
+    background-color: #005f73;
   }

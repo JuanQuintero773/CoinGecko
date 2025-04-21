@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CoinGecko App</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="splash-screen">
-    <img src="icon.png" alt="App Icon">
+    <img src="icon.png" alt="App Icon" width="100" height="100">
     <h1>Bienvenido a CoinGecko App</h1>
   </div>
 
@@ -24,20 +24,24 @@
       <button class="tab" data-tab="tab3">Mercado</button>
       <button class="tab" data-tab="tab4">Noticias</button>
       <button class="tab" data-tab="tab5">Configuración</button>
-      <button class="tab" data-tab="tab6">Perfil</button>
     </nav>
     <section id="tab-content">
-      <!-- El contenido dinámico de cada pestaña se mostrará aquí -->
+      
+    </section>
+    <section id="stats-content">
+      <h2>Estadísticas del mercado</h2>
+      <div id="stats-data"></div>
     </section>
   </main>
 
-  <footer id="bottom-menu">
-    <button>Inicio</button>
-    <button>Favoritos</button>
-    <button>Configuración</button>
-    <button>Perfil</button>
-  </footer>
 
-  <script src="script.js"></script>
+  <script type="module" src="js/script.js"></script>
+  <script type="module" src="js/favorites.js"></script>
+  <script type="module" src="js/fetchCoins.js"></script>
+  <script type="module" src="js/searchCoins.js"></script>
+  <script type="module" src="js/marketData.js"></script>
+  <script type="module" src="js/news.js"></script>
+  <script type="module" src="js/stats.js"></script>
+
 </body>
 </html>
