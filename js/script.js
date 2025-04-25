@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const applyFiltersButton = document.getElementById("apply-filters");
   async function fetchMarketData() {
     try {
-      const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1');
+      const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1');
       const data = await response.json();
       const favorites = getFavorites();
   
@@ -88,27 +88,79 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
   
-
       if (tabId === "tab1") {
-        tabContent.innerHTML = `
-          <h1>Inicio</h1>
-          <p>Bienvenido a la aplicación.</p>
-          <section id="promociones">
-            <h2>Por qué usar CriptoApp</h2>
-            <div class="feature">
-              <img src="images/realtime.png" alt="Actualizaciones en tiempo real" width="50">
-              <p><strong>Actualizaciones en Tiempo Real:</strong> Mantente al día con los precios y tendencias del mercado.</p>
-            </div>
-            <div class="feature">
-              <img src="images/favorites.png" alt="Guardado de favoritos" width="50">
-              <p><strong>Guarda tus Favoritos:</strong> Organiza tus criptomonedas preferidas y accede rápidamente.</p>
-            </div>
-            <div class="feature">
-              <img src="images/filters.png" alt="Filtros avanzados" width="50">
-              <p><strong>Filtros Avanzados:</strong> Encuentra criptomonedas que cumplan con tus criterios en segundos.</p>
-            </div>
-          </section>
-        `;
+        try {
+          const marketData = await getMarketData();
+          console.log("Datos del mercado:", marketData);
+      
+          if (!marketData || marketData.error) {
+            tabContent.innerHTML = `
+              <p>⚠ No se pudieron cargar las estadísticas del mercado.</p>
+              <section id="promociones">
+                <h2>Por qué usar CoinGecko</h2>
+                <!-- Promoción de funcionalidades -->
+                <div class="feature">
+                  <img src="images/realtime.png" alt="Actualizaciones en tiempo real" width="50">
+                  <p><strong>Actualizaciones en Tiempo Real:</strong> Mantente al día con los precios y tendencias del mercado.</p>
+                </div>
+                <div class="feature">
+                  <img src="images/favorites.png" alt="Guardado de favoritos" width="50">
+                  <p><strong>Guarda tus Favoritos:</strong> Organiza tus criptomonedas preferidas y accede rápidamente.</p>
+                </div>
+                <div class="feature">
+                  <img src="images/filters.png" alt="Filtros avanzados" width="50">
+                  <p><strong>Filtros Avanzados:</strong> Encuentra criptomonedas que cumplan con tus criterios en segundos.</p>
+                </div>
+              </section>
+            `;
+          } else {
+            tabContent.innerHTML = `
+              <section id="estadisticas">
+                <h2>Estadísticas del Mercado</h2>
+                <p><strong>Capitalización total:</strong> $${marketData.total_market_cap.usd.toLocaleString()}</p>
+                <p><strong>Volumen 24h:</strong> $${marketData.total_volume.usd.toLocaleString()}</p>
+                <p><strong>Criptomonedas activas:</strong> ${marketData.active_cryptocurrencies}</p>
+              </section>
+              <section id="promociones">
+                <h2>Por qué usar CoinGecko</h2>
+                <!-- Promoción de funcionalidades -->
+                <div class="feature">
+                  <img src="images/realtime.png" alt="Actualizaciones en tiempo real" width="50">
+                  <p><strong>Actualizaciones en Tiempo Real:</strong> Mantente al día con los precios y tendencias del mercado.</p>
+                </div>
+                <div class="feature">
+                  <img src="images/favorites.png" alt="Guardado de favoritos" width="50">
+                  <p><strong>Guarda tus Favoritos:</strong> Organiza tus criptomonedas preferidas y accede rápidamente.</p>
+                </div>
+                <div class="feature">
+                  <img src="images/filters.png" alt="Filtros avanzados" width="50">
+                  <p><strong>Filtros Avanzados:</strong> Encuentra criptomonedas que cumplan con tus criterios en segundos.</p>
+                </div>
+              </section>
+            `;
+          }
+        } catch (error) {
+          console.error("Error al cargar datos de inicio:", error);
+          tabContent.innerHTML = `
+            <p>⚠ Ocurrió un error al cargar los datos.</p>
+            <section id="promociones">
+              <h2>Por qué usar CriptoApp</h2>
+              <!-- Promoción de funcionalidades -->
+              <div class="feature">
+                <img src="images/realtime.png" alt="Actualizaciones en tiempo real" width="50">
+                <p><strong>Actualizaciones en Tiempo Real:</strong> Mantente al día con los precios y tendencias del mercado.</p>
+              </div>
+              <div class="feature">
+                <img src="images/favorites.png" alt="Guardado de favoritos" width="50">
+                <p><strong>Guarda tus Favoritos:</strong> Organiza tus criptomonedas preferidas y accede rápidamente.</p>
+              </div>
+              <div class="feature">
+                <img src="images/filters.png" alt="Filtros avanzados" width="50">
+                <p><strong>Filtros Avanzados:</strong> Encuentra criptomonedas que cumplan con tus criterios en segundos.</p>
+              </div>
+            </section>
+          `;
+        }
       }
        else if (tabId === "tab2") {
         // Sección Favoritos
