@@ -15,6 +15,8 @@ export async function getMarketData() {
     return data.data;
   } catch (error) {
     console.error('Error al obtener datos del mercado:', error);
-    return null;
+
+    // Retorna un objeto con el mensaje de error
+    return { error: 'No se pudieron cargar las estadísticas del mercado. Verifica tu conexión o intenta más tarde.' };
   }
 }

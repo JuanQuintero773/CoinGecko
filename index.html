@@ -23,25 +23,49 @@
       <button class="tab" data-tab="tab2">Favoritos</button>
       <button class="tab" data-tab="tab3">Mercado</button>
       <button class="tab" data-tab="tab4">Noticias</button>
-      <button class="tab" data-tab="tab5">Configuración</button>
     </nav>
+
+    <!-- Formulario de filtros para la pestaña de Mercado -->
+    <form id="filter-form" style="display: none;">
+      <label>
+        <input type="checkbox" id="filter-price" data-type="price"> Precio mayor a $100
+      </label>
+      <label>
+        <input type="checkbox" id="filter-volume" data-type="volume"> Volumen mayor a $1,000,000
+      </label>
+      <label>
+        <input type="checkbox" id="filter-change" data-type="change"> Cambio porcentual mayor al 10%
+      </label>
+      <button type="button" id="apply-filters">Aplicar filtros</button>
+    </form>
+
+    <!-- Contenido dinámico para las pestañas -->
     <section id="tab-content">
-      
-    </section>
-    <section id="stats-content">
-      <h2>Estadísticas del mercado</h2>
-      <div id="stats-data"></div>
+      <!-- Promoción de funcionalidades clave en la pestaña de Inicio -->
+      <section id="promociones">
+        <h2>Por qué usar CriptoApp</h2>
+        <div class="feature">
+          <img src="images/realtime.png" alt="Actualizaciones en tiempo real" width="50">
+          <p><strong>Actualizaciones en Tiempo Real:</strong> Mantente al día con los precios y tendencias del mercado.</p>
+        </div>
+        <div class="feature">
+          <img src="images/favorites.png" alt="Guardado de favoritos" width="50">
+          <p><strong>Guarda tus Favoritos:</strong> Organiza tus criptomonedas preferidas y accede rápidamente.</p>
+        </div>
+        <div class="feature">
+          <img src="images/filters.png" alt="Filtros avanzados" width="50">
+          <p><strong>Filtros Avanzados:</strong> Encuentra criptomonedas que cumplan con tus criterios en segundos.</p>
+        </div>
+      </section>
     </section>
   </main>
 
-
-  <script type="module" src="js/script.js"></script>
   <script type="module" src="js/favorites.js"></script>
   <script type="module" src="js/fetchCoins.js"></script>
   <script type="module" src="js/searchCoins.js"></script>
   <script type="module" src="js/marketData.js"></script>
   <script type="module" src="js/news.js"></script>
   <script type="module" src="js/stats.js"></script>
-
+  <script type="module" src="js/script.js"></script>
 </body>
 </html>

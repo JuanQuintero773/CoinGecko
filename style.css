@@ -1,120 +1,306 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilos para el formulario de registro */
-  form#registration-form {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  form#registration-form input {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  form#registration-form button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  
-  form#registration-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Mejorar el diseño de las pestañas */
-  #tabs {
-    display: flex;
-    justify-content: space-around;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 0;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ajustes para el contenido principal */
+#content {
+  padding: 20px;
+  margin-bottom: 70px; /* Espacio suficiente para el menú fijo */
+}
+
+/* Estilos para el formulario de registro */
+form#registration-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+form#registration-form input {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form#registration-form button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+form#registration-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Diseño del menú de pestañas */
+#tabs {
+  position: fixed; /* Fija el menú */
+  bottom: 0; /* Ubica el menú en la parte inferior */
+  left: 0;
+  width: 100%; /* Ancho completo */
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+.tab {
+  flex: 1; /* Todos los botones ocupan el mismo espacio */
+  text-align: center;
+  border: none;
+  background: none;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #0056b3; /* Botón activo */
+  font-weight: bold;
+  border-bottom: 2px solid #0056b3;
+}
+
+.tab:focus {
+  outline: none; /* Sin contorno al enfocar */
+}
+
+/* Estilos para botones del perfil */
+button#logout-btn, button#switch-user-btn {
+  margin: 10px;
+  padding: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button#logout-btn:hover, button#switch-user-btn:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para estadísticas */
+#stats-content {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+#stats-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Diseño para criptomonedas */
+.coin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coin img {
+  border-radius: 50%;
+}
+
+/* Botón "Ver más" */
+#load-more {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#load-more:hover {
+  background-color: #005f73;
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
   .tab {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  
-  .tab.active {
-    border-bottom: 2px solid white;
-  }
-  
-  /* Estilos para los botones del perfil */
-  button#logout-btn, button#switch-user-btn {
-    margin: 10px;
-    padding: 10px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  
-  button#logout-btn:hover, button#switch-user-btn:hover {
-    background-color: #c82333;
-  }
-
-  #stats-content {
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-  }
-  
-  #stats-data {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  footer button.active {
-    background-color: #007bff;
-    color: white;
-  }
-  .coin {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .coin img {
-    border-radius: 50%;
+    font-size: 14px; /* Botones más pequeños en pantallas pequeñas */
+    padding: 8px 0;
   }
   #load-more {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px auto;
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+    font-size: 14px; /* Botón "Ver más" más compacto */
   }
-  
-  #load-more:hover {
-    background-color: #005f73;
+}
+#market-stats {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#market-stats h2 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+#market-stats p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #333;
+}
+#search-bar {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.coin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coin img {
+  border-radius: 50%;
+}
+#filter-form {
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#filter-form label {
+  display: block;
+  margin: 10px 0;
+}
+
+#apply-filters {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#apply-filters:hover {
+  background-color: #0056b3;
+}
+@media (max-width: 768px) {
+  #tabs {
+    font-size: 14px; /* Tamaño más pequeño para los botones */
+    padding: 10px 0;
   }
+
+  #market-stats {
+    margin-top: 30px; /* Aumentar espacio en pantallas pequeñas */
+  }
+
+  #tab-content {
+    margin-bottom: 80px; /* Más espacio para los botones fijos */
+  }
+}
+.coin {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.coin img {
+  margin-right: 10px;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  #tabs {
+    padding: 10px 0;
+    font-size: 14px; /* Reduce el tamaño de los botones */
+  }
+
+  #tab-content {
+    margin-bottom: 80px; /* Aumenta el espacio en pantallas pequeñas */
+  }
+}
+#promociones {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+#promociones h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.feature img {
+  margin-right: 15px;
+}
+
+.feature p {
+  font-size: 16px;
+  color: #555;
+}
+#promociones {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+#promociones h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.feature img {
+  margin-right: 15px;
+}
+
+.feature p {
+  font-size: 16px;
+  color: #555;
+}
