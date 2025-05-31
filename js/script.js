@@ -2,6 +2,15 @@ import { getMarketData } from './marketData.js';
 import { getFavorites, addFavorite, removeFavorite } from './favorites.js';
 import { fetchCoins } from './fetchCoins.js';
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then((registration) => {
+      console.log("Service Worker registrado con éxito:", registration);
+    })
+    .catch((error) => {
+      console.error("Error al registrar el Service Worker:", error);
+    });
+}
 document.addEventListener("DOMContentLoaded", () => {
   const tabContent = document.getElementById("tab-content");
   const buttons = document.querySelectorAll(".tab");
